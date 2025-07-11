@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 15:58:33 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/04/25 14:53:49 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/10 18:15:34 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,9 +168,8 @@ int						cylinder_parse(char *line, t_data *data);
 t_cylinder				*get_current_cylinder(t_data *data);
 int						parse_cymeasures(int *cursor, char *line,
 							t_cylinder *current);
-
-// data clean
 void					data_clean(t_data *data);
 int						parse_cylinder_coord(int *cursor, char *line,
 							t_cylinder *current, int i);
+void					custom_err(int err);	
 #endif

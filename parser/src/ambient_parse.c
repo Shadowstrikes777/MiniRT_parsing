@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 09:29:58 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/04/25 14:51:12 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/10 17:56:54 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ int	ambient_parse(char *line, t_data *data)
 	if (parse_aratio(&cursor, line + cursor, data) == -1)
 	{
 		put_error("Error\nInvalid ratio");
-		return (-1);
+		return (-3);
 	}
 	if (parse_argb(&cursor, line, data) == -1)
 	{
 		put_error("Error\nInvalid color");
-		return (-1);
+		return (-3);
 	}
 	data->ambient.set = true;
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 17:31:39 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/04/25 14:17:13 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/10 18:07:26 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,21 +56,21 @@ int	plane_parse(char *line, t_data *data)
 	cursor = 3;
 	current = get_current_plane(data);
 	if (!current)
-		return (-1);
+		return (404);
 	if (parse_pcoord(&cursor, line + cursor, current) == -1)
 	{
 		put_error("Error\nInvalid coordinates");
-		return (-1);
+		return (-6);
 	}
 	if (parse_pvect(&cursor, line + cursor, current) == -1)
 	{
 		put_error("Error\nInvalid vector");
-		return (-1);
+		return (-6);
 	}
 	if (parse_prgb(&cursor, line, current) == -1)
 	{
 		put_error("Error\nInvalid color");
-		return (-1);
+		return (-6);
 	}
 	return (0);
 }

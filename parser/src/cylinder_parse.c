@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 16:53:59 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/04/25 14:52:52 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/10 18:13:45 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	parse_color(int *cursor, char *line, t_cylinder *current)
 	if (parse_cyrgb(cursor, line, current) == -1)
 	{
 		put_error("Error\nInvalid cy color");
-		return (-1);
+		return (-8);
 	}
 	return (0);
 }
@@ -63,21 +63,21 @@ int	cylinder_parse(char *line, t_data *data)
 	cursor = 3;
 	current = get_current_cylinder(data);
 	if (!current)
-		return (-1);
+		return (406);
 	if (parse_cycoord(&cursor, line + cursor, current) == -1)
 	{
 		put_error("Error\nInvalid coordinates");
-		return (-1);
+		return (-8);
 	}
 	if (parse_cyvect(&cursor, line + cursor, current) == -1)
 	{
 		put_error("Error\nInvalid cy vector");
-		return (-1);
+		return (-8);
 	}
 	if (parse_cymeasures(&cursor, line + cursor, current) == -1)
 	{
 		put_error("Error\nInvalid cy radius");
-		return (-1);
+		return (-8);
 	}
 	ret = parse_color(&cursor, line, current);
 	return (ret);

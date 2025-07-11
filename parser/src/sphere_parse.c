@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 21:59:49 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/04/25 14:13:45 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/10 18:11:53 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,21 +57,21 @@ int	sphere_parse(char *line, t_data *data)
 	cursor = 3;
 	current = get_current_sphere(data);
 	if (!current)
-		return (-1);
+		return (405);
 	if (parse_spcoord(&cursor, line + cursor, current) == -1)
 	{
 		put_error("Error\nInvalid coordinates");
-		return (-1);
+		return (-7);
 	}
 	if (parse_diameter(&cursor, line + cursor, current) == -1)
 	{
 		put_error("Error\nInvalid diameter");
-		return (-1);
+		return (-7);
 	}
 	if (parse_sprgb(&cursor, line, current) == -1)
 	{
 		put_error("Error\nInvalid color");
-		return (-1);
+		return (-7);
 	}
 	return (0);
 }

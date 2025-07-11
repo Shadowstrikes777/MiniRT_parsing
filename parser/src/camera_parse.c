@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 13:16:46 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/04/25 14:20:30 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/10 18:00:45 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ int	camera_parse(char *line, t_data *data)
 	if (parse_coord(&cursor, line + cursor, data) == -1)
 	{
 		put_error("Error\nInvalid coordinates");
-		return (-1);
+		return (-4);
 	}
 	if (parse_orientation(&cursor, line + cursor, data) == -1)
 	{
 		put_error("Error\nInvalid orientation vector");
-		return (-1);
+		return (-4);
 	}
 	if (parse_fov(&cursor, line, data) == -1)
 	{
 		put_error("Error\nInvalid Field Of View");
-		return (-1);
+		return (-4);
 	}
 	data->camera.set = true;
 	return (0);

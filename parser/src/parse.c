@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 09:34:59 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/04/25 14:17:52 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/10 18:35:41 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	parse_unique(char *line, t_data *data)
 {
 	int	retval;
 
-	retval = 0;
+	retval = -1;
 	if (ft_strncmp(line, "A ", 2) == 0)
 	{
 		retval = ambient_parse(line, data);
@@ -57,10 +57,7 @@ int	parse_line(char *line, t_data *data)
 {
 	int	retval;
 
-	retval = -1;
 	retval = parse_unique(line, data);
-	if (retval != 0)
-		return (retval);
 	if (ft_strncmp(line, "pl ", 3) == 0)
 	{
 		retval = plane_parse(line, data);
@@ -76,5 +73,5 @@ int	parse_line(char *line, t_data *data)
 		retval = cylinder_parse(line, data);
 		return (retval);
 	}
-	return (0);
+	return (retval);
 }

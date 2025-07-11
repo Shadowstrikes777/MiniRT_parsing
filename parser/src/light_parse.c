@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 20:09:34 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/04/25 14:20:14 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/10 18:02:07 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ int	light_parse(char *line, t_data *data)
 	if (parse_lcoord(&cursor, line + cursor, data) == -1)
 	{
 		put_error("Error\nInvalid coordinates");
-		return (-1);
+		return (-5);
 	}
 	if (parse_brightness(&cursor, line + cursor, data) == -1)
 	{
 		put_error("Error\nInvalid brightness");
-		return (-1);
+		return (-5);
 	}
 	data->light.set = true;
 	return (0);
