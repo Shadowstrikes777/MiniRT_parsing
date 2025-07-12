@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 17:31:39 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/07/10 18:07:26 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/12 14:57:38 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ int	plane_parse(char *line, t_data *data)
 		put_error("Error\nInvalid color");
 		return (-6);
 	}
+	current->type = PL;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 09:34:59 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/07/10 18:35:41 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/12 15:03:53 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ int	parse_file(t_file *copy, t_data *data)
 			return (retval);
 		tmp = tmp->next;
 	}
+	if (data->ambient.set == false
+		|| data->light.set == false
+		|| data->camera.set == false)
+		return (407);
 	return (retval);
 }
 

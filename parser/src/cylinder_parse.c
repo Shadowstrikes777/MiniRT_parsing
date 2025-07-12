@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 16:53:59 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/07/10 18:13:45 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/12 14:58:57 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ int	cylinder_parse(char *line, t_data *data)
 		return (-8);
 	}
 	ret = parse_color(&cursor, line, current);
+	if (ret == 0)
+		current->type = CY;
 	return (ret);
 }
 

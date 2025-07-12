@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 15:58:33 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/07/10 18:15:34 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/12 15:36:52 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@
 # include <stdlib.h> // for malloc, free, exit
 # include <string.h> // for strerror
 # include <unistd.h> // for read, write, close
-
+# define CY 1
+# define PL 2
+# define SP 3
 # define DLIMIT 2000 // DIAMETERS
 # define NDLIMIT 1
 # define RT_CHARSET "-., \n"
@@ -61,6 +63,7 @@ typedef struct s_light
 
 typedef struct s_sphere
 {
+	int					type;
 	float				x;
 	float				y;
 	float				z;
@@ -71,6 +74,7 @@ typedef struct s_sphere
 
 typedef struct s_plane
 {
+	int					type;
 	float				x;
 	float				y;
 	float				z;
@@ -83,6 +87,7 @@ typedef struct s_plane
 
 typedef struct s_cylinder
 {
+	int					type;
 	float				x;
 	float				y;
 	float				z;

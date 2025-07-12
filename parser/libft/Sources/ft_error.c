@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 09:45:42 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/07/10 18:56:46 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/12 15:02:32 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,6 @@ void	custom_err(int err)
 		put_error("Failed to create object : Sphere\n");
 	if (err == 406)
 		put_error("Failed to create object : Cylinder\n");
+	if (err == 407)
+		put_error("Ambient/Camera/light missing\n");
 }

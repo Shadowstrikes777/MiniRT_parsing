@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 21:59:49 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/07/10 18:11:53 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/12 14:58:03 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int	sphere_parse(char *line, t_data *data)
 		put_error("Error\nInvalid color");
 		return (-7);
 	}
+	current->type = SP;
 	return (0);
 }
 
