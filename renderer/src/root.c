@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 08:35:56 by mihrakot          #+#    #+#             */
-/*   Updated: 2025/07/10 11:32:16 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/12 16:13:36 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void put_pl(t_scene *sc)
    obj->color.z = 200;
 }*/
 
-t_objs *alloc_obj(t_vec dir, t_vec center, t_vec color, t_vec d, int type)
+t_objs *alloc_obj(//t_vec dir, t_vec center, t_vec color, t_vec d, int type)
 {
 	t_objs *new = malloc(sizeof(t_objs));
 	if (new == NULL)

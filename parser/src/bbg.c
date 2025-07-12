@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 15:31:14 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/07/12 16:36:26 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/12 16:38:15 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static void	init_uniquess(t_data **pdata, t_scene **psc);
 
-void	BBG(t_data *data, t_scene *sc)
+void	bbg(t_data *data, t_scene *sc)
 {
 	init_uniquess(&data, &sc);
 	make_list(&sc->objs, data);

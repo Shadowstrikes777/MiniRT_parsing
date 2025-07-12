@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihrakot <mihrakot@student.42antananari    +#+  +:+       +#+        */
+/*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 08:36:40 by mihrakot          #+#    #+#             */
-/*   Updated: 2025/07/08 08:36:41 by mihrakot         ###   ########.fr       */
+/*   Updated: 2025/07/12 15:45:09 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # define CY 1
 # define PL 2
 # define SP 3
-# define CO 4 
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
@@ -28,7 +27,7 @@
 # include <math.h>
 # include "../mlx_linux/mlx.h"
 
-typedef struct s_data {
+typedef struct s_img_data {
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
@@ -69,7 +68,6 @@ typedef struct s_light
 	t_vec			src;
 	double			ratio;
 	t_vec			col;
-	struct s_light	*next;
 }	t_light;
 
 typedef struct s_amb
