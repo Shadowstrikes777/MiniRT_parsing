@@ -6,91 +6,56 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 13:43:36 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/07/12 18:17:18 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/13 22:38:06 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-void	print_data(t_data *data);
+
+static int	parsing(int argc, char **argv, t_data **pdata, 	t_file	**copy);
 
 int	main(int argc, char **argv)
 {
-	int		fd;
-	t_scene	*sc;
 	t_file	*copy;
 	t_data	*data;
-	int		err;
-
-	err = 0;
-	fd = handle_file_error(argc, argv);
-	copy = copy_file(fd);
-	remove_nls(&copy);
-	data = init_data();
-	if (!data)
-	{
-		free(data);
-		clean_content(copy);
-		return (1);
-	}
-	err = parse_file(copy, data);
-	if (err !=  0)
-	{
-		custom_err(err);
-		clean_content(copy);
-		data_clean(data);
-		return (1);
-	}
+	t_scene	*sc;
+	
+	parsing(argc, argv, &data, &copy);
 	sc = (t_scene *) malloc(sizeof(t_scene));
-	//ft_calloc(1, sizeof(t_scene));
 	if (sc == NULL)
 		return 1;
 	bbg(data, sc);
 	clean_content(copy);
 	data_clean(data);
-	sc->selected = sc->objs;//for object dinamique movement
-	// printf("type == %d\n", sc->objs->type);
+	sc->selected = sc->objs;
 	render_miniRT(sc);
 	return (0);
 }
 
-
-void	print_data(t_data *data)
+static int	parsing(int argc, char **argv, t_data **pdata, 	t_file	**copy)
 {
-	printf("ambient:\n");
-	printf("ambient: ratio =%f r=%d g=%d b=%d\n", data->ambient.ratio, data->ambient.rgb[0], data->ambient.rgb[1], data->ambient.rgb[2]);
+	int		fd;
+	t_data	*data;
+	int		err;
 
-	printf("camera:\n");
-	printf("camera: x=%f y=%f z=%f\n", data->camera.x, data->camera.y, data->camera.z);
-	printf("camera: ox=%f oy=%f oz=%f\n", data->camera.ox, data->camera.oy, data->camera.oz);
-	printf("camera: fov=%d\n", data->camera.fov);
-
-	printf("lights:\n");
-	printf("light: x=%f y=%f z=%f brightness=%f\n", data->light.x, data->light.y, data->light.z, data->light.brightness);
-	printf("spheres:\n");
-	t_sphere *sphere = data->sphere;
-	while (sphere)
+	fd = handle_file_error(argc, argv);
+	*copy = copy_file(fd);
+	remove_nls(copy);
+	data = init_data();
+	if (!data)
 	{
-		printf("sphere: x=%f y=%f z=%f diameter=%f\n", sphere->x, sphere->y, sphere->z, sphere->diameter);
-		printf("sphere: r=%d g=%d b=%d type=%d\n", sphere->rgb[0], sphere->rgb[1], sphere->rgb[2], sphere->type);
-		sphere = sphere->next;
+		free(data);
+		clean_content(*copy);
+		return (1);
 	}
-	printf("planes:\n");
-	t_plane *plane = data->plane;
-	while (plane)
+	err = parse_file(*copy, data);
+	if (err !=  0)
 	{
-		printf("plane: x=%f y=%f z=%f\n", plane->x, plane->y, plane->z);
-		printf("plane: ox=%f oy=%f oz=%f\n", plane->ox, plane->oy, plane->oz);
-		printf("plane: r=%d g=%d b=%d type=%d\n", plane->rgb[0], plane->rgb[1], plane->rgb[2], plane->type);
-		plane = plane->next;
+		custom_err(err);
+		clean_content(*copy);
+		data_clean(data);
+		return (1);
 	}
-	printf("cylinders:\n");
-	t_cylinder *cylinder = data->cylinder;
-	while (cylinder)
-	{
-		printf("cylinder: x=%f y=%f z=%f\n", cylinder->x, cylinder->y, cylinder->z);
-		printf("cylinder: ox=%f oy=%f oz=%f\n", cylinder->ox, cylinder->oy, cylinder->oz);
-		printf("cylinder: diameter=%f height=%f\n", cylinder->diameter, cylinder->height);
-		printf("cylinder: r=%d g=%d b=%d type=%d\n", cylinder->rgb[0], cylinder->rgb[1], cylinder->rgb[2], cylinder->type);
-		cylinder = cylinder->next;
-	}
+	*pdata = data;
+	return (err);
 }

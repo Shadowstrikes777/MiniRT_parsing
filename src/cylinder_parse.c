@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 16:53:59 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/07/12 14:58:57 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/13 22:14:59 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static int	parse_color(int *cursor, char *line, t_cylinder *current)
 		put_error("Error\nInvalid cy color");
 		return (-8);
 	}
+	current->type = CY;
 	return (0);
 }
 
@@ -58,7 +59,6 @@ int	cylinder_parse(char *line, t_data *data)
 {
 	int			cursor;
 	t_cylinder	*current;
-	int			ret;
 
 	cursor = 3;
 	current = get_current_cylinder(data);
@@ -66,23 +66,20 @@ int	cylinder_parse(char *line, t_data *data)
 		return (406);
 	if (parse_cycoord(&cursor, line + cursor, current) == -1)
 	{
-		put_error("Error\nInvalid coordinates");
+		put_error("Error\nInvalid coordinates ");
 		return (-8);
 	}
 	if (parse_cyvect(&cursor, line + cursor, current) == -1)
 	{
-		put_error("Error\nInvalid cy vector");
+		put_error("Error\nInvalid vector ");
 		return (-8);
 	}
 	if (parse_cymeasures(&cursor, line + cursor, current) == -1)
 	{
-		put_error("Error\nInvalid cy radius");
+		put_error("Error\nInvalid Measures: check the Radius/Height");
 		return (-8);
 	}
-	ret = parse_color(&cursor, line, current);
-	if (ret == 0)
-		current->type = CY;
-	return (ret);
+	return (parse_color(&cursor, line, current));
 }
 
 int	parse_cyvect(int *cursor, char *line, t_cylinder *current)

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mihrakot <mihrakot@student.42antananari    +#+  +:+       +#+         #
+#    By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 15:54:03 by mmaevani          #+#    #+#              #
-#    Updated: 2025/07/12 17:37:33 by mihrakot         ###   ########.fr        #
+#    Updated: 2025/07/13 22:47:07 by mmaevani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ SRCS = main.c infile_handle.c file_copy.c bbg.c \
 		vector2.c Raytracer.c \
 		intersection.c mlx_func.c\
 		camera.c color.c Normale.c\
-		inter_rot.c shade.c \
+		inter_rot.c shade.c handle_err.c\
 
 OBJ = $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 INCS = minirt.h

@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:03:41 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/04/25 14:13:27 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/13 21:49:19 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	check_float(char *line, char end_char)
 			return (-1);
 		i++;
 	}
-	if (line[i] != end_char)
+	if (line[i] != end_char || i > 8)
 		return (-1);
 	return (1);
 }
@@ -76,7 +76,7 @@ int	check_int(char *line, char end_char)
 			return (-1);
 		i++;
 	}
-	if (line[i] != end_char)
+	if (line[i] != end_char || i == 0)
 		return (-1);
 	return (1);
 }

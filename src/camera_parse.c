@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 13:16:46 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/07/10 18:00:45 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/13 22:18:28 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int	camera_parse(char *line, t_data *data)
 	return (0);
 }
 
-//∗ FOV: Horizontal field of view in degrees in range [0,180]: 70
 int	parse_fov(int *cursor, char *line, t_data *data)
 {
 	int		len;

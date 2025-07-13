@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 15:31:14 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/07/12 18:49:51 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/13 22:35:41 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,7 @@ static void make_list(t_objs **head, t_data *data)
             return;
         }
         if (*head == NULL)
-        {
             *head = newobj;
-        }
 		else
 		{
 			t_objs **last = head;
@@ -64,9 +62,7 @@ static void make_list(t_objs **head, t_data *data)
     	        return;
     	    }
     	    if (*head == NULL)
-    	    {
     	        *head = newobj;
-    	    }
     	    else
     	    {
     	        t_objs **last = head;
@@ -106,7 +102,6 @@ static void make_list(t_objs **head, t_data *data)
 	}
 }
 
-
 t_objs *alloc_obj(t_vec dir, t_vec center, t_vec color, t_vec d, int type)
 {
 	t_objs *new = malloc(sizeof(t_objs));
@@ -122,7 +117,6 @@ t_objs *alloc_obj(t_vec dir, t_vec center, t_vec color, t_vec d, int type)
 	return(new);
 }
 
-
 static void	init_uniquess(t_data **pdata, t_scene **psc)
 {
 	t_data	*data = *pdata;
@@ -131,7 +125,7 @@ static void	init_uniquess(t_data **pdata, t_scene **psc)
 	sc->amb.col.y = data->ambient.rgb[1];
 	sc->amb.col.z = data->ambient.rgb[2];
 	sc->amb.ratio = data->ambient.ratio;
-	sc->amb.count = 1;
+	sc->amb.count++;
 	sc->cam.cen.x = data->camera.x;
 	sc->cam.cen.y = data->camera.y;
 	sc->cam.cen.z = data->camera.z;
@@ -139,18 +133,18 @@ static void	init_uniquess(t_data **pdata, t_scene **psc)
 	sc->cam.dir.y = data->camera.oy;
 	sc->cam.dir.z = data->camera.oz;
 	sc->cam.fov = data->camera.fov;
-	sc->cam.count = 1;
-	sc->light.src.x = data->light.x;
-	sc->light.src.y = data->light.y;
-	sc->light.src.z = data->light.z;
+	sc->cam.count++;
+	sc->light.src.x = data->light.x + 0.0001;
+	sc->light.src.y = data->light.y + 0.001;
+	sc->light.src.z = data->light.z + 0.0001;
 	sc->light.ratio = data->light.brightness;
 	sc->light.col.x = 255;
 	sc->light.col.y = 255;
-	sc->light.col.y = 255;
+	sc->light.col.z = 255;
 }
+
 void	bbg(t_data *data, t_scene *sc)
 {
 	init_uniquess(&data, &sc);
 	make_list(&sc->objs, data);
 }
-

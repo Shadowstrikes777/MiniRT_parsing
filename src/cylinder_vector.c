@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 17:46:52 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/04/25 14:20:23 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/13 22:22:03 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	parse_cyrgb(int *cursor, char *line, t_cylinder *current)
 		if (i == 2)
 			end = '\n';
 		line += (*cursor);
-		line++;
 		if (ft_strchr(line, end) == NULL)
 			return (-1);
 		if (check_int(line, end) == -1)
@@ -69,6 +68,8 @@ t_cylinder	*get_current_cylinder(t_data *data)
 	data->cylinder->next = NULL;
 	return (data->cylinder);
 }
+
+
 
 static t_cylinder	*get_last_cylinder(t_cylinder *cylinder)
 {

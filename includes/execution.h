@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   execution.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
+/*   By: mihrakot <mihrakot@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 08:36:40 by mihrakot          #+#    #+#             */
-/*   Updated: 2025/07/12 17:49:30 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/13 08:58:54 by mihrakot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EXECUTION_H
 # define EXECUTION_H
 
-# define WIDTH 1200
-# define HEIGHT 1200
+# define WIDTH 800
+# define HEIGHT 800
 # define EPSYLON 0.00000000001
 #define M_PI       3.14159265358979323846
 

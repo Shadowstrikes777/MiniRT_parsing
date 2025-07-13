@@ -1,6 +1,0 @@
-Check light color should error
-
-add type of pl sp cy : non unique objects from makefile
-
-Check if multiple objects declaration is working
-Create a pont function

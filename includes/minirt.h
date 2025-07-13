@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihrakot <mihrakot@student.42antananari    +#+  +:+       +#+        */
+/*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 15:58:33 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/07/12 17:34:13 by mihrakot         ###   ########.fr       */
+/*   Updated: 2025/07/13 20:23:03 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <unistd.h> // for read, write, close
 # include "execution.h"
 # define DLIMIT 2000 // DIAMETERS
-# define NDLIMIT 1
+# define NDLIMIT 0
 # define RT_CHARSET "-., \n"
 # define POS_XYZLIMIT 1200.0
 # define NEG_XYZLIMIT -800.0
