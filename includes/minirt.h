@@ -6,12 +6,13 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 15:58:33 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/07/13 20:23:03 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/14 15:44:29 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
 # define MINIRT_H
+# include "execution.h"
 # include "libft.h"
 # include <fcntl.h> // for open, close
 # include <math.h>  // for math functions
@@ -20,7 +21,6 @@
 # include <stdlib.h> // for malloc, free, exit
 # include <string.h> // for strerror
 # include <unistd.h> // for read, write, close
-# include "execution.h"
 # define DLIMIT 2000 // DIAMETERS
 # define NDLIMIT 0
 # define RT_CHARSET "-., \n"
@@ -108,8 +108,8 @@ typedef struct s_data
 	struct s_cylinder	*cylinder;
 }						t_data;
 
-//bbg
-void	bbg(t_data *data, t_scene *sc);
+// bbg
+void					bigbridge(t_data *data, t_scene *sc);
 float					ft_atof(const char *nptr);
 int						fill_file_copy(int fd, t_file **file_copy);
 t_file					*copy_file(int fd);
@@ -176,5 +176,10 @@ int						parse_cymeasures(int *cursor, char *line,
 void					data_clean(t_data *data);
 int						parse_cylinder_coord(int *cursor, char *line,
 							t_cylinder *current, int i);
-void					custom_err(int err);	
+void					custom_err(int err);
+void					big_bridge_sphere(t_data *data, t_objs **head,
+							t_objs **last, t_objs **newobj);
+void					head_updater(t_objs **head, t_objs **newobj,
+							t_objs **last);
+
 #endif

@@ -3,23 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
+/*   By: mihrakot <mihrakot@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 08:35:40 by mihrakot          #+#    #+#             */
-/*   Updated: 2025/07/12 17:51:13 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/14 16:51:28 by mihrakot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #include "minirt.h"
 
 t_vec	calcul_color(t_scene *sc, t_inter inter, t_vec amb)
 {
-	t_light_exec		*light;
-	t_vec		ret;
-	t_vec		hit_light;
-	double		d;
+	t_light_exec	*light;
+	t_vec			ret;
+	t_vec			hit_light;
+	double			d;
 
 	ret = make_vec(0, 0, 0);
 	light = &sc->light;
@@ -36,6 +34,14 @@ t_vec	calcul_color(t_scene *sc, t_inter inter, t_vec amb)
 			ret = add_color(ret, diffuse(inter, light, d));
 	}
 	return (ret);
+}
+
+void	my_mlx_pixel_put(t_img_data *data, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
 }
 
 t_vec	add_coef(t_vec col1, t_vec col2, double ratio)
@@ -68,9 +74,7 @@ t_vec	ray_color(t_Ray *ray, t_scene *sc)
 	t_vec	px_col;
 	t_vec	amb;
 
-	
 	inter = find_inter(ray, sc);
-	
 	if (inter.t > EPSYLON)
 	{
 		amb = add_coef(inter.col, sc->amb.col, sc->amb.ratio);

@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include "minirt.h"
 
 t_vec	sub_vec(t_vec u, t_vec v)
@@ -24,7 +22,7 @@ t_vec	sub_vec(t_vec u, t_vec v)
 	return (w);
 }
 
-double	module_v(t_vec	v)
+double	module_v(t_vec v)
 {
 	return (sqrt(pow(v.x, 2) + pow(v.y, 2) + pow(v.z, 2)));
 }

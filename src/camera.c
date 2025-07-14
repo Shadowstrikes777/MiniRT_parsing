@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "minirt.h"
 
 t_camera_exec	set_camera(t_scene *sc)
@@ -18,7 +17,7 @@ t_camera_exec	set_camera(t_scene *sc)
 	t_camera_exec	cam;
 
 	cam.orig = sc->cam.cen;
-	cam.A_ration = (double) WIDTH / (double) HEIGHT;
+	cam.A_ration = (double)WIDTH / (double)HEIGHT;
 	cam.O = sc->cam.fov * M_PI / 180;
 	cam.H = tan(cam.O / 2);
 	cam.W = cam.A_ration * cam.H;
@@ -34,8 +33,8 @@ t_Ray	ray_primary(t_camera_exec *cam, double v, double u)
 	t_Ray	ray;
 
 	ray.origin = cam->orig;
-	ray.dir = add_vec(add_vec(mult_vec(cam->UP, v * cam->H),
-				mult_vec(cam->R, u * cam->W)), cam->forward);
+	ray.dir = add_vec(add_vec(mult_vec(cam->UP, v * cam->H), mult_vec(cam->R, u
+					* cam->W)), cam->forward);
 	ray.dir = take_normalized(ray.dir);
 	return (ray);
 }

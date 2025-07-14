@@ -6,17 +6,17 @@
 /*   By: mihrakot <mihrakot@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 08:36:40 by mihrakot          #+#    #+#             */
-/*   Updated: 2025/07/13 08:58:54 by mihrakot         ###   ########.fr       */
+/*   Updated: 2025/07/14 16:54:32 by mihrakot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EXECUTION_H
 # define EXECUTION_H
 
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 900
+# define HEIGHT 900
 # define EPSYLON 0.00000000001
-#define M_PI       3.14159265358979323846
+#define M_PI     3.14159265358979323846
 
 # define CY 1
 # define PL 2
@@ -26,6 +26,8 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <fcntl.h>
+# include <X11/X.h>
+# include <X11/keysym.h>
 # include <math.h>
 # include "../minilibx-linux/mlx.h"
 
@@ -126,7 +128,7 @@ typedef struct render
 
 typedef struct s_scene
 {
-	t_vec	col;
+	//t_vec	col;
 	t_cam	cam;
 	t_light_exec	light;
 	t_amb_exec	amb;
@@ -166,8 +168,6 @@ typedef struct cylinder_exec
 
 //vectors
 void		null_vec(t_vec *v);
-t_vec		take_vec(char *s);
-t_vec		take_color(char *s);
 t_vec		take_normalized(t_vec v);
 void		normalize(t_vec *v);
 double		get_norm2(t_vec v);
@@ -179,14 +179,13 @@ double		dot_product(t_vec u, t_vec v);
 double		module_v(t_vec	v);
 t_vec		div_vect(t_vec v, double a);
 t_vec		make_vec(double x, double y, double z);
-//void make_list(t_objs **head, t_vec dir, t_vec center, t_vec color, t_vec d, int type);
-t_objs *alloc_obj(t_vec dir, t_vec center, t_vec color, t_vec d, int type);
+t_objs		*alloc_obj(t_vec dir, t_vec center, t_vec color, t_vec d);
 
 /*rendring */
-void		render_miniRT(t_scene *sc);
-void    ft_err(char *err);
-void	creat_img(t_render info, t_scene *sc);
-void objs_rotation(int n, t_scene *sc);
+void		render_minirt(t_scene *sc);
+void    	ft_err(char *err);
+void		creat_img(t_render info, t_scene *sc);
+void		objs_rotation(int n, t_scene *sc);
 
 /* camera */
 t_camera_exec	set_camera(t_scene *sc);
@@ -203,7 +202,7 @@ double		inter_cylinder(t_Ray *ray, t_objs *cy);
 double	limit_cy(t_cylinder_exec inf, t_Ray *ray, t_objs *cy);
 
 /* mlx funct */
-int			red_button(t_vars *vars);
+int			red_button(t_scene *sc);
 int			handle_key(int key, t_scene *sc);
 void		my_mlx_pixel_put(t_img_data *data, int x, int y, int color);
 
@@ -216,10 +215,11 @@ t_vec		colorize(double r, double g, double b);
 t_vec		diffuse(t_inter inter, t_light_exec *light, double d);
 int			shade(t_scene *sc, t_inter inter, t_light_exec *light);
 
-//surface normal
+// normal
 int			is_inside(t_vec ray, t_vec norm);
 t_inter		spher_normal(t_inter hold, t_objs *obj, t_Ray *ray);
 t_inter		plane_normal(t_inter hold, t_objs *obj, t_Ray *ray);
 t_inter		cylinder_normal(t_inter hold, t_objs *obj, t_Ray *ray);
+void		light_translation(int key, t_scene *sc);
 
 #endif

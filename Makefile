@@ -6,7 +6,7 @@
 #    By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 15:54:03 by mmaevani          #+#    #+#              #
-#    Updated: 2025/07/13 22:47:07 by mmaevani         ###   ########.fr        #
+#    Updated: 2025/07/14 15:32:47 by mmaevani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBFT = ./libft
 MINILIBX = ./minilibx-linux/
 
 # Source files
-SRCS = main.c infile_handle.c file_copy.c bbg.c \
+SRCS = main.c infile_handle.c file_copy.c bigbridge.c \
 		nls_parse.c init.c utils.c ambient_parse.c \
 		parse.c camera_parse.c parse_coord.c \
 		parse_or.c light_parse.c plane_parse.c \

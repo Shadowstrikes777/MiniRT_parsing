@@ -69,8 +69,6 @@ t_cylinder	*get_current_cylinder(t_data *data)
 	return (data->cylinder);
 }
 
-
-
 static t_cylinder	*get_last_cylinder(t_cylinder *cylinder)
 {
 	while (cylinder && cylinder->next != NULL)

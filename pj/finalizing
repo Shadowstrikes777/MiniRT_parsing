@@ -1,8 +1,0 @@
-\you should verify invalid functions like printf 
-\\verify that ending with space then '\n' is not allowed
-should set a limit to the vector normalization and coordonnees set by the define in header.
-should check normV4 if anything in that define is illegal
-should free the plane sphere and cylender one by one like copy
-
-## comments
-after \\ means done

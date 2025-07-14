@@ -10,13 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include "minirt.h"
 
 t_inter	spher_normal(t_inter hold, t_objs *obj, t_Ray *ray)
 {
 	t_inter	inter;
+
 	inter.t = inter_sphere(ray, obj);
 	if (((hold.t > inter.t || hold.t == -1) && inter.t > EPSYLON))
 	{

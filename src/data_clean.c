@@ -6,13 +6,12 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 21:48:29 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/04/04 18:13:32 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/14 16:26:31 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-// should clean cylender plane and sphere here
 void	data_clean(t_data *data)
 {
 	t_plane		*tmp;

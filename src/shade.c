@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "minirt.h"
 
 int	is_inside(t_vec ray, t_vec norm)
@@ -22,10 +21,10 @@ int	is_inside(t_vec ray, t_vec norm)
 
 int	shade(t_scene *sc, t_inter inter, t_light_exec *light)
 {
-	t_vec		hit_light;
+	t_vec	hit_light;
 	t_Ray	sh_ray;
-	t_inter		shadow;
-	t_vec		hit_sh;
+	t_inter	shadow;
+	t_vec	hit_sh;
 
 	hit_light = sub_vec(light->src, inter.hit);
 	sh_ray.origin = inter.hit;
