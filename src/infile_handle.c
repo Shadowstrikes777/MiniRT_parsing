@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:20:33 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/03/17 15:10:21 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/15 11:41:09 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ int	check_file_ext(char *str, char *sub)
 	char	*tmp;
 
 	tmp = ft_strrchr(str, '.');
+	if (ft_strcmp(str, ".rt") == 0)
+	{
+		put_error("Error\nWrong filename");
+		exit(1);
+	}
 	if (*str == '\0')
 	{
 		put_error("Error\nEmpty filename not allowed");

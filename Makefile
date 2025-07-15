@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+         #
+#    By: mihrakot <mihrakot@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/26 15:54:03 by mmaevani          #+#    #+#              #
-#    Updated: 2025/07/14 15:32:47 by mmaevani         ###   ########.fr        #
+#    Updated: 2025/07/15 07:39:55 by mihrakot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,9 +30,9 @@ SRCS = main.c infile_handle.c file_copy.c bigbridge.c \
 		sphere_parse.c spcoord.c cylinder_parse.c \
 		cylinder_measures.c cylinder_vector.c add_parse.c \
  		tools.c \
-  		vector.c normal_vector.c\
-		vector2.c Raytracer.c \
-		intersection.c mlx_func.c\
+  		vec_00.c normal_vector.c\
+		vec_01.c Raytracer.c \
+		intersection.c key_input.c\
 		camera.c color.c Normale.c\
 		inter_rot.c shade.c handle_err.c\
 

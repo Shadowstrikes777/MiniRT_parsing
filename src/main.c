@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 13:43:36 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/07/14 17:18:49 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/15 11:19:47 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int	main(int argc, char **argv)
 	t_data	*data;
 	t_scene	*sc;
 
-	parsing(argc, argv, &data, &copy);
+	if (parsing(argc, argv, &data, &copy) != 0)
+		return (1);
 	sc = ft_calloc(sizeof(t_scene), 1);
 	if (sc == NULL)
 		return (1);

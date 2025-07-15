@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_func.c                                         :+:      :+:    :+:   */
+/*   key_input.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mihrakot <mihrakot@student.42antananari    +#+  +:+       +#+        */
+/*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 08:35:46 by mihrakot          #+#    #+#             */
-/*   Updated: 2025/07/14 16:51:09 by mihrakot         ###   ########.fr       */
+/*   Updated: 2025/07/15 11:32:05 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,9 @@ int	red_button(t_scene *sc)
 		free(sc->selected->prev);
 	}
 	free(sc->selected);
-	free(sc);
+	if (sc != NULL)
+		free(sc);
+	sc = NULL;
 	exit(0);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mihrakot <mihrakot@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 08:35:43 by mihrakot          #+#    #+#             */
-/*   Updated: 2025/07/14 16:44:11 by mihrakot         ###   ########.fr       */
+/*   Updated: 2025/07/15 07:55:00 by mihrakot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,44 +58,47 @@ double	inter_plane(t_Ray *ray, t_objs *pl)
 	return (-1.0);
 }
 
-double	limit_cy(t_cylinder_exec inf, t_Ray *ray, t_objs *cy)
+double	limit_cy(t_cylinder_exec limit, t_Ray *ray, t_objs *cy)
 {
-	inf.t1 = (-inf.b + sqrt(inf.delta)) / (2 * inf.a);
-	inf.t2 = (-inf.b - sqrt(inf.delta)) / (2 * inf.a);
-	if (inf.t1 < EPSYLON)
+	limit.t1 = (-limit.b + sqrt(limit.delta)) / (2 * limit.a);
+	limit.t2 = (-limit.b - sqrt(limit.delta)) / (2 * limit.a);
+	if (limit.t1 < EPSYLON)
 		return (-1);
-	if (inf.t1 > inf.t2)
-		inf.t = inf.t2;
+	if (limit.t1 > limit.t2)
+		limit.t = limit.t2;
 	else
-		inf.t = inf.t1;
-	inf.y0 = dot_product(ray->dir, inf.normal) * inf.t2
-		+ dot_product(inf.oc, inf.normal);
-	inf.y1 = dot_product(ray->dir, inf.normal) * inf.t1
-		+ dot_product(inf.oc, inf.normal);
-	if (inf.y0 >= EPSYLON && inf.y0 <= cy->p.y)
-		return (inf.t2);
-	if (inf.y1 >= EPSYLON && inf.y1 <= cy->p.y)
-		return (inf.t1);
+		limit.t = limit.t1;
+	limit.y0 = dot_product(ray->dir, limit.normal) * limit.t2
+		+ dot_product(limit.oc, limit.normal);
+	limit.y1 = dot_product(ray->dir, limit.normal) * limit.t1
+		+ dot_product(limit.oc, limit.normal);
+	if (limit.y0 >= EPSYLON && limit.y0 <= cy->p.y)
+		return (limit.t2);
+	if (limit.y1 >= EPSYLON && limit.y1 <= cy->p.y)
+		return (limit.t1);
 	return (-1);
 }
 
 double	inter_cylinder(t_Ray *r, t_objs *cy)
 {
-	t_cylinder_exec	inf;
+	t_cylinder_exec	cy_data;
 	double			t;
 
-	inf.normal = take_normalized(cy->dir);
-	inf.oc = sub_vec(r->origin, cy->cen);
-	inf.a = dot_product(r->dir, r->dir) - (dot_product(r->dir, inf.normal)
-			* dot_product(r->dir, inf.normal));
-	inf.b = 2 * (dot_product(r->dir, inf.oc) - (dot_product(r->dir, inf.normal)
-				* dot_product(inf.oc, inf.normal)));
-	inf.c = dot_product(inf.oc, inf.oc)
-		- (dot_product(inf.oc, inf.normal) * dot_product(inf.oc, inf.normal))
+	cy_data.normal = take_normalized(cy->dir);
+	cy_data.oc = sub_vec(r->origin, cy->cen);
+	cy_data.a = dot_product(r->dir, r->dir)
+		- (dot_product(r->dir, cy_data.normal)
+			* dot_product(r->dir, cy_data.normal));
+	cy_data.b = 2 * (dot_product(r->dir, cy_data.oc)
+			- (dot_product(r->dir, cy_data.normal)
+				* dot_product(cy_data.oc, cy_data.normal)));
+	cy_data.c = dot_product(cy_data.oc, cy_data.oc)
+		- (dot_product(cy_data.oc, cy_data.normal)
+			* dot_product(cy_data.oc, cy_data.normal))
 		- (cy->p.x / 2) * (cy->p.x) / 2;
-	inf.delta = inf.b * inf.b - 4 * inf.a * inf.c;
-	if (inf.delta < EPSYLON)
+	cy_data.delta = cy_data.b * cy_data.b - 4 * cy_data.a * cy_data.c;
+	if (cy_data.delta < EPSYLON)
 		return (0);
-	t = limit_cy(inf, r, cy);
+	t = limit_cy(cy_data, r, cy);
 	return (t);
 }

@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 08:36:06 by mihrakot          #+#    #+#             */
-/*   Updated: 2025/07/14 16:30:10 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/15 11:38:41 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ double	check_min(double x, double y)
 	return (x);
 }
 
-void	ft_err(char *err)
+void	error(char *err)
 {
-	printf("Error : %s\n", err);
+	put_error("Error");
+	put_error(err);
 	exit(1);
 }
 
@@ -59,7 +60,7 @@ void	head_updater(t_objs **head, t_objs **newobj, t_objs **last)
 {
 	if (*newobj == NULL)
 	{
-		ft_err("Memory allocation failed");
+		error("Memory allocation failed");
 		return ;
 	}
 	if (*head == NULL)

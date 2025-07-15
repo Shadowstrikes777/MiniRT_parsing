@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bigbridge.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
+/*   By: mihrakot <mihrakot@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 15:31:14 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/07/14 16:31:49 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/15 07:41:32 by mihrakot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
