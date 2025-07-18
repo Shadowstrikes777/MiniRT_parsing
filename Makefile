@@ -11,8 +11,8 @@
 # **************************************************************************** #
 
 NAME = miniRT
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux 
+CC = gcc -O3
+CFLAGS =  -Wpedantic -Wall -Wextra -Werror -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux 
 RM = rm -f
 
 OBJ_DIR = ./obj/

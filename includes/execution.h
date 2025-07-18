@@ -13,8 +13,8 @@
 #ifndef EXECUTION_H
 # define EXECUTION_H
 
-# define WIDTH 900
-# define HEIGHT 900
+# define WIDTH 500
+# define HEIGHT 500
 # define EPSYLON 0.00000000001
 # define M_PI 3.14159265358979323846
 

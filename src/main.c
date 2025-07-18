@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 13:43:36 by mmaevani          #+#    #+#             */
-/*   Updated: 2025/07/15 11:19:47 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/17 12:30:47 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,16 @@ int	main(int argc, char **argv)
 	sc->selected = sc->objs;
 	render_minirt(sc);
 	return (0);
+}
+
+void	usage(void)
+{
+	// should fix these crazy controls
+	printf("light directions:\n\t end -> right\tdel -> left\tins -> up\t home");
+	printf("-> down\n");
+	printf("Page up/down to move up and down an object\n");
+	printf("Num, / to brighten or not the scene\n");
+	printf("Numerical pad for camera movement\n");
 }
 
 static int	parsing(int argc, char **argv, t_data **pdata, t_file **copy)

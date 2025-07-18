@@ -6,7 +6,7 @@
 /*   By: mmaevani <mmaevani@student.42antananarivo. +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 08:35:46 by mihrakot          #+#    #+#             */
-/*   Updated: 2025/07/15 11:32:05 by mmaevani         ###   ########.fr       */
+/*   Updated: 2025/07/18 11:06:34 by mmaevani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,12 +104,14 @@ int	red_button(t_scene *sc)
 	if (sc->render.vars.mlx != NULL)
 		mlx_destroy_display(sc->render.vars.mlx);
 	free(sc->render.vars.mlx);
-	while (sc->selected->next != NULL)
+	while (sc->selected && sc->selected->next != NULL)
 	{
 		sc->selected = sc->selected->next;
 		free(sc->selected->prev);
+		sc->selected->prev = NULL;
 	}
-	free(sc->selected);
+	if (sc->selected)
+		free(sc->selected);
 	if (sc != NULL)
 		free(sc);
 	sc = NULL;
